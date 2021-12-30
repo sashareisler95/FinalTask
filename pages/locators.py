@@ -16,4 +16,15 @@ class ProductPageLocators:
     PRODUCT_COST = (By.CSS_SELECTOR, "p.price_color")
     NAME_IN_ALERT = (By.CSS_SELECTOR, "#messages .alert:nth-child(1) .alertinner strong")
     COST_IN_ALERT = (By.CSS_SELECTOR, "#messages .alert:nth-child(3) .alertinner strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert:nth-child(1) div.alertinner")
 
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.CSS_SELECTOR, "span a.btn-default")
+
+
+class BasketPageLocators:
+    BASKET_EMPTY_TEXT = (By.CSS_SELECTOR, "#content_inner p")
+    BASKET_ITEMS = (By.CSS_SELECTOR, "div.basket-items")
