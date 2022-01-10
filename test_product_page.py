@@ -2,7 +2,7 @@ import random
 import string
 import time
 import pytest
-from basket_page import BasketPage
+from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 from .pages.product_page import ProductPage
 
