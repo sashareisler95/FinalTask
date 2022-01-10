@@ -18,20 +18,11 @@ class TestUserAddToBasketFromProductPage:
         page.register_new_user(email, password)
         page.should_be_authorized_user()
 
-    @pytest.mark.parametrize('link',
-                             ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer4",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer5",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer6",
-                              pytest.param("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
-                                           "/?promo=offer7", marks=pytest.mark.xfail),
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
-                              "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
+    @pytest.mark.parametrize('link_number',
+                             ["0", "1", "2", "3", "4", "5", "6", pytest.param("7", marks=pytest.mark.xfail), "8", "9"])
     @pytest.mark.need_review
-    def test_user_can_add_product_to_basket(self, browser, link):
+    def test_user_can_add_product_to_basket(self, browser, link_number):
+        link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{link_number}'
         page = ProductPage(browser, link)
         page.open()
         page.check_add_product_to_basket()
